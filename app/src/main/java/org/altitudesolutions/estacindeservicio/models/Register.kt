@@ -1,7 +1,7 @@
 package org.altitudesolutions.estacindeservicio.models
 
-data class Registro(
-    val movil: Int,
+data class Register(
+    val movil: String,
     val kilometraje: Float,
     val producto: String,
     val litros: Float,
