@@ -1,15 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp">
+
+<!--    <TableLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+<!--            <TextView-->
+<!--                android:layout_width="35sp"-->
+<!--                android:text="#" />-->
+
+            <TextView
+                android:layout_width="85sp"
+                android:text="Móvil" />
+
+            <TextView
+                android:layout_width="180sp"
+                android:text="Fecha y Hora" />
+
+            <TextView
+                android:layout_width="125sp"
+                android:text="Kilometraje" />
+
+            <TextView
+                android:layout_width="100sp"
+                android:text="Producto" />
+
+            <TextView
+                android:layout_width="90sp"
+                android:text="Litros" />
+
+            <TextView
+                android:layout_width="120sp"
+                android:text="Precio Total" />
+
+        </TableRow>
+
+<!--    </TableLayout>-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tableView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:layout_weight="100"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/add"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
+        android:layout_gravity="end"/>
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package org.altitudesolutions.estacindeservicio
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -37,6 +38,13 @@ class EstacionDeServicio: AppCompatActivity() {
         // Load App data
         loadVehicles()
         loadRegisters()
+
+        addButton.setOnClickListener {
+            val intent = Intent (this, NewRegister::class.java)
+            intent.putExtra("token", this.token )
+            intent.putExtra("userName", this.userName)
+            startActivity(intent)
+        }
     }
 
     private fun loadVehicles () {
@@ -93,10 +101,10 @@ class EstacionDeServicio: AppCompatActivity() {
 
                         if (registers != null) {
                             for(regi in registers){
-                                Log.i("Estacion", regi.movil + "\t" + regi.producto)
+                                Log.i("Estacion", regi.movil + "\t" + regi.fechaYHora.toString() + "\t" + regi.kilometraje.toString() + "\t" + regi.producto + "\t" + regi.litros.toString() + "\t" + regi.precioTotal.toString())
                             }
                         }
-                        // Set layout to vertical linear layour
+                        // Set layout to vertical linear layout
                         this@EstacionDeServicio.tableView.layoutManager = layoutManager
 
                         // Set adapter to RegisterAdapter type
