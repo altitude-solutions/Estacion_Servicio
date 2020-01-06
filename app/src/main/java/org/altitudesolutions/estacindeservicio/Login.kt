@@ -20,17 +20,20 @@ class Login : AppCompatActivity() {
 
 
         loginButton.setOnClickListener {
+            loginButton.isEnabled = false
             val username: String = username_text.text.toString()
             val password: String = password_text.text.toString()
 
             if(username.isEmpty()){
                 username_text.error = "El nombre de usuario es necesario"
                 username_text.requestFocus()
+                loginButton.isEnabled = true
                 return@setOnClickListener
             }
             if(password.isEmpty()) {
                 password_text.error = "La contraseña es necesaria"
                 password_text.requestFocus()
+                loginButton.isEnabled = true
                 return@setOnClickListener
             }
 
@@ -39,12 +42,14 @@ class Login : AppCompatActivity() {
                 .enqueue(object: Callback<LoginResponse> {
                     override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                        loginButton.isEnabled = true
                     }
 
                     override fun onResponse(
                         call: Call<LoginResponse>,
                         response: Response<LoginResponse>
                     ) {
+                        loginButton.isEnabled = true
                         if(response.code() != 200){
                             Toast.makeText(applicationContext, "Usuario o contrseña incorrectos", Toast.LENGTH_SHORT).show()
                         }else{
@@ -53,6 +58,9 @@ class Login : AppCompatActivity() {
                             intent.putExtra("realName", response.body()?.user?.nombreReal )
                             intent.putExtra("token", response.body()?.token )
                             intent.putExtra("userName", response.body()?.user?.nombreUsuario )
+                            username_text.requestFocus()
+                            username_text.text.clear()
+                            password_text.text.clear()
                             startActivity(intent)
                         }
                     }

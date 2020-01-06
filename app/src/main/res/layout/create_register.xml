@@ -1,13 +1,212 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<TableLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            app:cardBackgroundColor="#ebeded">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="120dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:srcCompat="@drawable/movil_verde"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Móvil"/>
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/vehicleNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textAutoComplete"
+                    android:layout_margin="5dp"
+                    android:nextFocusDown="@id/vehicleKilometer"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_marginLeft="10dp"
+            app:cardBackgroundColor="#ebeded"
+            android:layout_marginStart="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:srcCompat="@drawable/kilometraje_verde"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Kilometraje"/>
+
+                <EditText
+                    android:id="@+id/vehicleKilometer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:layout_margin="5dp"
+                    android:nextFocusDown="@id/fuelProduct"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </TableRow>
+
+
+    <TableRow
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="jnoasni"/>
+        android:layout_marginTop="10dp">
 
-</LinearLayout>
+        <androidx.cardview.widget.CardView
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            app:cardBackgroundColor="#ebeded">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:srcCompat="@drawable/producto_verde"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Producto"/>
+
+                <Spinner
+                    android:id="@+id/fuelProduct"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:entries="@array/product_array"
+                    android:nextFocusDown="@id/fuelVolume"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            app:cardBackgroundColor="#ebeded"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:srcCompat="@drawable/litros_verde"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Litros"/>
+
+                <EditText
+                    android:id="@+id/fuelVolume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:layout_margin="5dp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            app:cardBackgroundColor="#ebeded"
+            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:srcCompat="@drawable/precio_por_unidad_verde"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Precio Total"/>
+
+                <EditText
+                    android:id="@+id/calculatedCost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:layout_margin="5dp"
+                    android:enabled="false"
+                    android:text="0.0"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/saveButton"
+            android:text="Guardar"
+            android:layout_gravity="bottom"
+            android:textColor="#ffffff"
+            android:background="#1D8680"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </TableRow>
+
+</TableLayout>
+
+
+

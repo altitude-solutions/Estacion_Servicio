@@ -9,10 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.estacion_de_servicio.*
 import org.altitudesolutions.estacindeservicio.Adapters.RegisterAdapter
 import org.altitudesolutions.estacindeservicio.REST.RetrofitClient
-import org.altitudesolutions.estacindeservicio.models.GetVehiclesResponse
 import org.altitudesolutions.estacindeservicio.models.GetVentasResponse
 import org.altitudesolutions.estacindeservicio.models.Register
-import org.altitudesolutions.estacindeservicio.models.Vehicle
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -36,7 +34,6 @@ class EstacionDeServicio: AppCompatActivity() {
         this.userName = userName!!
 
         // Load App data
-        loadVehicles()
         loadRegisters()
 
         addButton.setOnClickListener {
@@ -47,34 +44,9 @@ class EstacionDeServicio: AppCompatActivity() {
         }
     }
 
-    private fun loadVehicles () {
-        RetrofitClient.Instance.getVehiclesList(this.token)
-            .enqueue(object: Callback<GetVehiclesResponse> {
-                override fun onFailure(call: Call<GetVehiclesResponse>, t: Throwable) {
-                    Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                }
-
-                override fun onResponse(
-                    call: Call<GetVehiclesResponse>,
-                    response: Response<GetVehiclesResponse>
-                ) {
-                    if(response.code() != 200) {
-                        Toast.makeText(
-                            applicationContext,
-                            "Error cargando la base de datos de vehículos",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }else{
-                        Toast.makeText(applicationContext, "Vehículos " + response.body()?.count.toString() + " descargados", Toast.LENGTH_LONG).show()
-                        val vehicleList: List<Vehicle>? = response.body()?.vehiculos;
-                        if (vehicleList != null) {
-                            for (vehicle in vehicleList){
-                                Log.i("Vehiculos", vehicle.movil + " has " + vehicle.capacidadCombustible.toString() + " L capacity")
-                            }
-                        }
-                    }
-                }
-            })
+    override fun onResume() {
+        super.onResume()
+        loadRegisters()
     }
 
     private fun loadRegisters() {

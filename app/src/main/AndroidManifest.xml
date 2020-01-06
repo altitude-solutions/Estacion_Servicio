@@ -23,7 +23,7 @@
         <activity android:name=".EstacionDeServicio"
             android:screenOrientation="landscape"/>
         <activity android:name=".NewRegister"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

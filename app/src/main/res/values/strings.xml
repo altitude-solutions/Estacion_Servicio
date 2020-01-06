@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Estación de Servicio</string>
+    <string-array name="product_array">
+        <item>Diésel</item>
+        <item>Gasolina</item>
+    </string-array>
 </resources>

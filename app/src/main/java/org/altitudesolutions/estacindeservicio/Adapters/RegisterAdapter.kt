@@ -15,7 +15,6 @@ import java.util.*
 class RegisterAdapter(private val context: Context, private val registers: List<Register>): RecyclerView.Adapter<RegisterAdapter.ViewHolder>() {
     inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun setData(register: Register) {
-//            itemView.idReg.text = register.id.toString()
             itemView.vehicle.text = register.movil
             itemView.productName.text = register.producto
             try {

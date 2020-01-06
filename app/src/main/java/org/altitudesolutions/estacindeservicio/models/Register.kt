@@ -7,5 +7,5 @@ data class Register(
     val litros: Float,
     val precioTotal: Float,
     val fechaYHora: Long,
-    val usuario: String
+    val usuario_id: String
 )
