@@ -1,6 +1,7 @@
 package org.altitudesolutions.estacindeservicio
 
 import android.content.Intent
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -15,8 +16,13 @@ import retrofit2.Response
 class Login : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.login)
+        if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.login)
+        }else{
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.login_landscape)
+        }
 
 
         loginButton.setOnClickListener {

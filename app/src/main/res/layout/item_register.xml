@@ -11,32 +11,32 @@
 
     <TextView
         android:id="@+id/vehicle"
-        android:layout_width="85sp"
+        android:layout_width="100sp"
         android:text="Móvil"/>
 
     <TextView
         android:id="@+id/dateTime"
-        android:layout_width="180sp"
+        android:layout_width="210sp"
         android:text="Fecha y Hora"/>
 
     <TextView
         android:id="@+id/kmDistance"
-        android:layout_width="125sp"
+        android:layout_width="155sp"
         android:text="Kilometraje"/>
 
     <TextView
         android:id="@+id/productName"
-        android:layout_width="100sp"
+        android:layout_width="120sp"
         android:text="Producto"/>
 
     <TextView
         android:id="@+id/volume"
-        android:layout_width="90sp"
+        android:layout_width="120sp"
         android:text="Litros"/>
 
     <TextView
         android:id="@+id/totalCost"
-        android:layout_width="120sp"
+        android:layout_width="150sp"
         android:text="Precio Total"/>
 
 </TableRow>

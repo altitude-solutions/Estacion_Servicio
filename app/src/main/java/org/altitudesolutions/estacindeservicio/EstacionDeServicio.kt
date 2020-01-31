@@ -71,11 +71,6 @@ class EstacionDeServicio: AppCompatActivity() {
                         val layoutManager = LinearLayoutManager(this@EstacionDeServicio)
                         layoutManager.orientation = LinearLayoutManager.VERTICAL
 
-                        if (registers != null) {
-                            for(regi in registers){
-                                Log.i("Estacion", regi.movil + "\t" + regi.fechaYHora.toString() + "\t" + regi.kilometraje.toString() + "\t" + regi.producto + "\t" + regi.litros.toString() + "\t" + regi.precioTotal.toString())
-                            }
-                        }
                         // Set layout to vertical linear layout
                         this@EstacionDeServicio.tableView.layoutManager = layoutManager
 

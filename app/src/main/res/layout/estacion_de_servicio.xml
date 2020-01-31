@@ -4,46 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/Theme.AppCompat.Light.NoActionBar"
-    android:orientation="vertical"
-    android:paddingLeft="50dp"
-    android:paddingRight="50dp"
+    android:orientation="horizontal"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
     android:paddingTop="5dp"
     android:paddingBottom="5dp">
 
-<!--    <TableLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content">-->
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:orientation="vertical">
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
-<!--            <TextView-->
-<!--                android:layout_width="35sp"-->
-<!--                android:text="#" />-->
-
-            <TextView
-                android:layout_width="85sp"
-                android:text="Móvil" />
-
-            <TextView
-                android:layout_width="180sp"
-                android:text="Fecha y Hora" />
-
-            <TextView
-                android:layout_width="125sp"
-                android:text="Kilometraje" />
 
             <TextView
                 android:layout_width="100sp"
-                android:text="Producto" />
+                android:text="Móvil" />
 
             <TextView
-                android:layout_width="90sp"
-                android:text="Litros" />
+                android:layout_width="210sp"
+                android:text="Fecha y Hora" />
+
+            <TextView
+                android:layout_width="155sp"
+                android:text="Kilometraje" />
 
             <TextView
                 android:layout_width="120sp"
+                android:text="Producto" />
+
+            <TextView
+                android:layout_width="120sp"
+                android:text="Litros" />
+
+            <TextView
+                android:layout_width="150sp"
                 android:text="Precio Total" />
 
         </TableRow>
@@ -52,10 +51,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/tableView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="100"/>
 
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addButton"
@@ -67,6 +67,6 @@
         android:layout_marginRight="0dp"
         android:layout_marginBottom="20dp"
         android:layout_weight="1"
-        android:layout_gravity="end"/>
+        android:layout_gravity="bottom"/>
 
 </LinearLayout>

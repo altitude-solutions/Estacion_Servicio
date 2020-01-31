@@ -1,6 +1,7 @@
 package org.altitudesolutions.estacindeservicio
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -26,8 +27,13 @@ class NewRegister: AppCompatActivity() {
     private var vehicleArray = mutableListOf<Vehicle>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.create_register)
+        if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.create_register)
+        }else{
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.create_register_landscape)
+        }
 
         val bundle: Bundle? = intent.extras
         val userName = bundle?.getString("userName")
@@ -60,7 +66,7 @@ class NewRegister: AppCompatActivity() {
 
         fuelProduct.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                Log.i("Dropdown", fuelProduct.selectedItem.toString() + "\t not changed")
+                
             }
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -76,7 +82,6 @@ class NewRegister: AppCompatActivity() {
                     times *= fuelVolume.text.toString().toFloat()
                     calculatedCost.setText( times.toString() )
                 }
-                Log.i("Dropdown", fuelProduct.selectedItem.toString() + "\t changed")
             }
 
         }
@@ -130,7 +135,6 @@ class NewRegister: AppCompatActivity() {
             }
 
             val date: String = Date().time.toString()
-//            Log.i("CreateReg", fuelProduct.selectedItem.toString() + "\t" + fuelVolume.text + "\t" + calculatedCost.text + "\t" + date + "\n" + vehicleKilometer.text + "\t" + vehicleNumber.text + "\t" + this.userName)
             RetrofitClient.Instance.createRegister(this.token, fuelProduct.selectedItem.toString(), fuelVolume.text.toString().toFloat(), calculatedCost.text.toString().toFloat(), date.toLong(), vehicleKilometer.text.toString().toFloat(), vehicleNumber.text.toString(), this.userName)
                 .enqueue(object: Callback<CreateResponse> {
                     override fun onFailure(call: Call<CreateResponse>, t: Throwable) {
@@ -143,18 +147,18 @@ class NewRegister: AppCompatActivity() {
                         response: Response<CreateResponse>
                     ) {
                         saveButton.isEnabled = true
-                        Log.i("CreateRes", response.body().toString())
-                        Toast.makeText(this@NewRegister, response.body()?.message.toString(), Toast.LENGTH_LONG).show()
+                        if(!response.body()?.message.isNullOrBlank()){
+                            Toast.makeText(this@NewRegister, response.body()?.message.toString(), Toast.LENGTH_LONG).show()
+                        }
                         if(response.body()?.saved == true){
-                            Log.i("CreateRes", response.body()?.saved.toString())
                             vehicleNumber.text.clear()
                             vehicleKilometer.text.clear()
                             fuelVolume.text.clear()
                             this@NewRegister.finish()
-//                            val intent = Intent(this@NewRegister, EstacionDeServicio::class.java)
-//                            startActivity(intent)
                         }else{
-                            Log.i("CreateRes", response.body()?.saved.toString())
+                            if(!response.body()?.errKm.isNullOrBlank()){
+                                this@NewRegister.vehicleKilometer.error = response.body()?.errKm.toString()
+                            }
                         }
                     }
                 })
@@ -177,7 +181,6 @@ class NewRegister: AppCompatActivity() {
                     call: Call<GetVehiclesResponse>,
                     response: Response<GetVehiclesResponse>
                 ) {
-                    Log.i("Vehiculos", "Callback")
                     if(response.code() != 200) {
                         Toast.makeText(
                             applicationContext,
@@ -192,7 +195,6 @@ class NewRegister: AppCompatActivity() {
                             for (vehicle in vehicleList){
                                 vehicleArray.add(vehicle)
                                 suggestions.add(vehicle.movil)
-//                                Log.i("Vehiculos", vehicle.movil + " has " + vehicle.capacidadCombustible.toString() + " L capacity")
                             }
 
                             val adapter = ArrayAdapter<String>(
