@@ -5,5 +5,6 @@ import java.util.*
 data class Vehicle (
     val movil: String,
     val placa: String,
-    val capacidadCombustible: Float
+    val capacidadCombustible: Float,
+    val combustible: String
 )

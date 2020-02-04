@@ -44,6 +44,27 @@ class NewRegister: AppCompatActivity() {
         this.token = token!!
         this.userName = userName!!
 
+        vehicleNumber.addTextChangedListener {
+            val currentVehicle = vehicleArray.find{
+                    v -> v.movil == vehicleNumber.text.toString()
+            }
+            if (currentVehicle != null) {
+                if(!currentVehicle.combustible.isNullOrBlank()) {
+                    Log.i("combustible", currentVehicle.combustible)
+                    this.fuelProduct.isEnabled = false
+                    if(currentVehicle.combustible == "Gasolina") {
+                        this.fuelProduct.setSelection(1)
+                    }else{
+                        this.fuelProduct.setSelection(0)
+                    }
+                } else {
+                    this.fuelProduct.isEnabled = true
+                }
+            }else {
+                this.fuelProduct.isEnabled = true
+            }
+        }
+
         fuelVolume.addTextChangedListener {
             var valueToShow: Double
             if(fuelProduct.selectedItem.toString() == "Gasolina"){
@@ -68,7 +89,6 @@ class NewRegister: AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 
             }
-
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 var times: Double
                 if(fuelProduct.selectedItem.toString() == "Gasolina"){
@@ -83,7 +103,6 @@ class NewRegister: AppCompatActivity() {
                     calculatedCost.setText( times.toString() )
                 }
             }
-
         }
 
         saveButton.setOnClickListener {
