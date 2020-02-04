@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:paddingBottom="10dp"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:layout_marginBottom="270dp">
 
     <TableLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
@@ -17,8 +24,8 @@
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="305dp"
-                android:layout_height="250dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
                 app:cardBackgroundColor="#ebeded">
 
                 <LinearLayout
@@ -27,8 +34,8 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="120dp"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
@@ -43,20 +50,20 @@
 
                     <AutoCompleteTextView
                         android:id="@+id/vehicleNumber"
-                        android:hint="Número de móvil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:inputType="textAutoComplete"
+                        android:hint="Número de móvil"
                         android:imeOptions="actionNext"
-                        android:nextFocusForward="@id/vehicleKilometer"/>
+                        android:inputType="textAutoComplete"
+                        android:nextFocusForward="@id/vehicleKilometer" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="305dp"
-                android:layout_height="250dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 app:cardBackgroundColor="#ebeded">
@@ -67,8 +74,8 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="120dp"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
@@ -82,18 +89,18 @@
 
                     <EditText
                         android:id="@+id/vehicleKilometer"
-                        android:hint="Kilometraje"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        android:hint="Kilometraje"
                         android:inputType="numberDecimal"
                         android:nextFocusDown="@id/fuelVolume" />
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="305dp"
-                android:layout_height="250dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 app:cardBackgroundColor="#ebeded">
@@ -104,8 +111,8 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="150dp"
-                        android:layout_height="120dp"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
@@ -122,22 +129,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:entries="@array/product_array"/>
+                        android:entries="@array/product_array" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-        </TableRow>
-
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="10dp">
-
             <androidx.cardview.widget.CardView
-                android:layout_width="305dp"
-                android:layout_height="250dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 app:cardBackgroundColor="#ebeded">
 
                 <LinearLayout
@@ -146,8 +147,8 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="140dp"
-                        android:layout_height="120dp"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
@@ -161,18 +162,18 @@
 
                     <EditText
                         android:id="@+id/fuelVolume"
-                        android:hint="Volumen"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        android:hint="Volumen"
                         android:inputType="numberDecimal" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="305dp"
-                android:layout_height="250dp"
+                android:layout_width="170dp"
+                android:layout_height="170dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
                 app:cardBackgroundColor="#ebeded">
@@ -183,8 +184,8 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:layout_width="180dp"
-                        android:layout_height="120dp"
+                        android:layout_width="80dp"
+                        android:layout_height="50dp"
                         android:layout_gravity="center"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="20dp"
@@ -208,18 +209,32 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/saveButton"
-                android:layout_gravity="bottom"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:background="#1D8680"
-                android:text="Guardar"
-                android:textColor="#ffffff" />
-
         </TableRow>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:background="#1D8680"
+                android:text="Guardar"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </TableLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

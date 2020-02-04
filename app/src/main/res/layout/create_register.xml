@@ -4,15 +4,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp"
+    android:layout_marginBottom="300dp">
 
-    <LinearLayout
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="155dp"
                 app:cardBackgroundColor="#ebeded">
 
@@ -49,45 +60,51 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="155dp"
-                android:layout_marginTop="10dp"
-                app:cardBackgroundColor="#ebeded">
+        <androidx.cardview.widget.CardView
+            android:layout_width="200dp"
+            android:layout_height="155dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            app:cardBackgroundColor="#ebeded">
 
-                <LinearLayout
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    app:srcCompat="@drawable/kilometraje_verde" />
+
+                <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Kilometraje" />
 
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="40dp"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp"
-                        app:srcCompat="@drawable/kilometraje_verde" />
+                <EditText
+                    android:id="@+id/vehicleKilometer"
+                    android:hint="Kilometraje"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:inputType="numberDecimal"
+                    android:nextFocusDown="@id/fuelVolume" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Kilometraje" />
+    </TableRow>
 
-                    <EditText
-                        android:id="@+id/vehicleKilometer"
-                        android:hint="Kilometraje"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
-                        android:inputType="numberDecimal"
-                        android:nextFocusDown="@id/fuelVolume" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
-
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="155dp"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="#ebeded">
@@ -122,8 +139,10 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
                 android:layout_height="155dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 app:cardBackgroundColor="#ebeded">
 
@@ -157,6 +176,12 @@
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -197,15 +222,18 @@
 
             <Button
                 android:id="@+id/saveButton"
-                android:layout_gravity="bottom"
-                android:layout_marginTop="10dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
                 android:background="#1D8680"
                 android:text="Guardar"
                 android:textColor="#ffffff"
                 android:layout_height="50dp"
                 android:layout_width="match_parent" />
 
-    </LinearLayout>
+        </TableRow>
+
+    </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
