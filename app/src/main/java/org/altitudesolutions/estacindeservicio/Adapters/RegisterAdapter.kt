@@ -26,6 +26,7 @@ class RegisterAdapter(private val context: Context, private val registers: List<
             itemView.kmDistance.text = register.kilometraje.toString() + " Km"
             itemView.totalCost.text = register.precioTotal.toString() + " Bs"
             itemView.volume.text = register.litros.toString() + " L"
+            itemView.comments.text = register.comentarios.toString()
         }
     }
 

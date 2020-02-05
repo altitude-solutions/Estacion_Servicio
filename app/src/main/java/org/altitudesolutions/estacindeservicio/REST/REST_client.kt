@@ -33,7 +33,8 @@ interface REST_client {
         @Field("fechaYHora") fechaYHora: Long,
         @Field("kilometraje") kilometraje: Float,
         @Field("movil") movil: String,
-        @Field("usuario_id") usuario: String
+        @Field("usuario_id") usuario: String,
+        @Field("comentarios") comentarios: String
     ): Call<CreateResponse>
 
     @GET("ventaCombustible")

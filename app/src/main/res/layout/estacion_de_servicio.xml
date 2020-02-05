@@ -22,19 +22,19 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:layout_width="100sp"
+                android:layout_width="70sp"
                 android:text="Móvil" />
 
             <TextView
-                android:layout_width="210sp"
+                android:layout_width="165sp"
                 android:text="Fecha y Hora" />
 
             <TextView
-                android:layout_width="155sp"
+                android:layout_width="120sp"
                 android:text="Kilometraje" />
 
             <TextView
-                android:layout_width="120sp"
+                android:layout_width="105sp"
                 android:text="Producto" />
 
             <TextView
@@ -42,8 +42,12 @@
                 android:text="Litros" />
 
             <TextView
-                android:layout_width="150sp"
+                android:layout_width="140sp"
                 android:text="Precio Total" />
+
+            <TextView
+                android:layout_width="135sp"
+                android:text="Comentarios"/>
 
         </TableRow>
 

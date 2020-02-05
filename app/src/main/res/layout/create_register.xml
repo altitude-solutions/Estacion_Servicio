@@ -172,7 +172,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:inputType="numberDecimal"
-                        android:imeOptions="actionDone"/>
+                        android:nextFocusDown="@id/comentarios" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
@@ -181,12 +181,12 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp">
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="155dp"
-                android:layout_marginTop="10dp"
                 app:cardBackgroundColor="#ebeded">
 
                 <LinearLayout
@@ -220,19 +220,54 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/saveButton"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="10dp"
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="155dp"
                 android:layout_marginStart="10dp"
-                android:background="#1D8680"
-                android:text="Guardar"
-                android:textColor="#ffffff"
-                android:layout_height="50dp"
-                android:layout_width="match_parent" />
+                android:layout_marginLeft="10dp"
+                app:cardBackgroundColor="#ebeded">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/comentarios"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:hint="Comentarios"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"/>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
         </TableRow>
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="#1D8680"
+                android:text="Guardar"
+                android:textColor="#ffffff"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

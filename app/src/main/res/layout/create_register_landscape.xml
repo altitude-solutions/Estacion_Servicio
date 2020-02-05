@@ -24,7 +24,7 @@
             android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="170dp"
+                android:layout_width="145dp"
                 android:layout_height="170dp"
                 app:cardBackgroundColor="#ebeded">
 
@@ -53,7 +53,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
-                        android:hint="Número de móvil"
+                        android:hint="Móvil"
                         android:imeOptions="actionNext"
                         android:inputType="textAutoComplete"
                         android:nextFocusForward="@id/vehicleKilometer" />
@@ -62,7 +62,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="170dp"
+                android:layout_width="150dp"
                 android:layout_height="170dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
@@ -99,7 +99,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="170dp"
+                android:layout_width="150dp"
                 android:layout_height="170dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
@@ -135,7 +135,7 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="170dp"
+                android:layout_width="150dp"
                 android:layout_height="170dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
@@ -166,13 +166,14 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:hint="Volumen"
-                        android:inputType="numberDecimal" />
+                        android:inputType="numberDecimal"
+                        android:nextFocusDown="@id/comentarios"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="170dp"
+                android:layout_width="150dp"
                 android:layout_height="170dp"
                 android:layout_marginStart="10dp"
                 android:layout_marginLeft="10dp"
@@ -205,6 +206,31 @@
                         android:enabled="false"
                         android:inputType="numberDecimal"
                         android:text="0.0" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="150dp"
+                android:layout_height="170dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                app:cardBackgroundColor="#ebeded">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <EditText
+                        android:id="@+id/comentarios"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:hint="Comentarios"
+                        android:inputType="textMultiLine"
+                        android:imeOptions="actionDone"/>
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

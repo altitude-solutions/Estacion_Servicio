@@ -153,7 +153,7 @@ class NewRegister: AppCompatActivity() {
             }
 
             val date: String = Date().time.toString()
-            RetrofitClient.Instance.createRegister(this.token, fuelProduct.selectedItem.toString(), fuelVolume.text.toString().toFloat(), calculatedCost.text.toString().toFloat(), date.toLong(), vehicleKilometer.text.toString().toFloat(), vehicleNumber.text.toString(), this.userName)
+            RetrofitClient.Instance.createRegister(this.token, fuelProduct.selectedItem.toString(), fuelVolume.text.toString().toFloat(), calculatedCost.text.toString().toFloat(), date.toLong(), vehicleKilometer.text.toString().toFloat(), vehicleNumber.text.toString(), this.userName, this.comentarios.text.toString())
                 .enqueue(object: Callback<CreateResponse> {
                     override fun onFailure(call: Call<CreateResponse>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
