@@ -1,7 +1,6 @@
 package org.altitudesolutions.estacindeservicio.Adapters
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +17,7 @@ class RegisterAdapter(private val context: Context, private val registers: List<
             itemView.vehicle.text = register.movil
             itemView.productName.text = register.producto
             try {
-                val sdf = SimpleDateFormat("dd/MM/yyyy hh:mm:ss")
+                val sdf = SimpleDateFormat("dd/MM/yyyy HH:mm:ss")
                 val netDate = Date(register.fechaYHora)
                 itemView.dateTime.text = sdf.format(netDate)
             } catch (e: Exception) {

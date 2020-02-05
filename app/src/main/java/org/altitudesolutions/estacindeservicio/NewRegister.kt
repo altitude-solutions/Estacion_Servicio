@@ -1,9 +1,7 @@
 package org.altitudesolutions.estacindeservicio
 
-import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -11,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import kotlinx.android.synthetic.main.create_register.*
-import kotlinx.android.synthetic.main.item_register.*
 import org.altitudesolutions.estacindeservicio.REST.RetrofitClient
 import org.altitudesolutions.estacindeservicio.models.CreateResponse
 import org.altitudesolutions.estacindeservicio.models.GetVehiclesResponse
@@ -20,6 +17,8 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.*
+import kotlin.math.round
+
 
 class NewRegister: AppCompatActivity() {
     private var token: String = ""
@@ -50,7 +49,6 @@ class NewRegister: AppCompatActivity() {
             }
             if (currentVehicle != null) {
                 if(!currentVehicle.combustible.isNullOrBlank()) {
-                    Log.i("combustible", currentVehicle.combustible)
                     this.fuelProduct.isEnabled = false
                     if(currentVehicle.combustible == "Gasolina") {
                         this.fuelProduct.setSelection(1)
@@ -72,14 +70,14 @@ class NewRegister: AppCompatActivity() {
                 if(fuelVolume.text.toString() == ""){
                     valueToShow = 0.0
                 }else{
-                    valueToShow = fuelVolume.text.toString().toDouble() * 3.74
+                    valueToShow = round(fuelVolume.text.toString().toDouble() * 3.74 * 100 ) / 100
                 }
             }else{
                 // 3.72
                 if(fuelVolume.text.toString() == ""){
                     valueToShow = 0.0
                 }else{
-                   valueToShow = fuelVolume.text.toString().toDouble() * 3.72
+                   valueToShow = round( fuelVolume.text.toString().toDouble() * 3.72 * 100 ) / 100
                 }
             }
             calculatedCost.setText( valueToShow.toString() )
@@ -100,6 +98,7 @@ class NewRegister: AppCompatActivity() {
                     calculatedCost.setText( "0.0 " )
                 }else{
                     times *= fuelVolume.text.toString().toFloat()
+                    times = round(times * 100 ) /100
                     calculatedCost.setText( times.toString() )
                 }
             }
